@@ -2,10 +2,8 @@ package com.narabel.api_redis.repository;
 
 import com.narabel.api_redis.domain.Person;
 
-import java.util.List;
+public interface DeletePersonRepository {
 
-public interface ListPersonRepository {
-
-	List<Person> listPerson();
+	void deletePerson(Person person);
 
 }

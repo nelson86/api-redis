@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  person:
+    image: "mariadb:10.5"
+    container_name: person-db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: person
+      MYSQL_USER: spring
+      MYSQL_PASSWORD: spring
+    ports:
+      - "3308:3306"
+    networks:
+      - net
+
+  redis:
+    image: "redis:alpine"
+    container_name: "redis"
+    #command: redis-server --requirepass sOmE_sEcUrE_pAsS
+    ports:
+      - "6379:6379"
+    networks:
+      - net
+    #volumes:
+      # - $PWD/redis-data:/var/lib/redis
+      # - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+networks:
+  net:
